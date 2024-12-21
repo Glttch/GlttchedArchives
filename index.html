@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glttched Archives</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    
+    <header>
+        <button class="menu-button" id="menuButton">☰</button>
+        <div class="search-container">
+            <div class="filter-container">
+                <select>
+                    <option value="all">All</option>
+                    <option value="category1">Category 1</option>
+                    <option value="category2">Category 2</option>
+                    <option value="category3">Category 3</option>
+                </select>
+            </div>
+            <input type="text" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="back-button" id="backButton">←</button>
+            <h2>Menu</h2>
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
