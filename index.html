@@ -23,19 +23,42 @@
         </div>
     </header>
 
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <button class="back-button" id="backButton">←</button>
-            <h2>Menu</h2>
-        </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
+    <main>
+        <form action="php/addNewManhwa.php" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br><br>
+    
+            <label for="authorId">Author ID:</label>
+            <input type="number" id="authorId" name="authorId" required><br><br>
+    
+            <label for="artistId">Artist ID:</label>
+            <input type="number" id="artistId" name="artistId" required><br><br>
+    
+            <label for="numOfChapters">Number of Chapters:</label>
+            <input type="number" id="numOfChapters" name="numOfChapters" required><br><br>
+    
+            <button type="submit">Add Manhwa</button>
+        </form>
 
-    <script src="script.js"></script>
+        <section id="manhwaDisplay">
+            <h2>All Manhwas</h2>
+            <div id="manhwaList" class="manhwa-list"></div>
+        </section>
+    
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="back-button" id="backButton">←</button>
+                <h2>Menu</h2>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    
+        <script src="script.js"></script>
+    </main>
 </body>
 </html>

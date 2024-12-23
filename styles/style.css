@@ -5,13 +5,27 @@
     box-sizing: border-box;
 }
 
+
 /* Body Styling */
+header {
+    position: fixed; /* Ensures the header stays fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #112950;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    gap: 20px;
+    flex-wrap: wrap;
+    height: 95px; /* Define the header height */
+}
+
 body {
-    background-color: #faf7ef;
-    padding: 0;
-    font-family: "Montserrat"; 
-    overflow-x: hidden;
-    flex-grow: 1; 
+    padding-top: 110px; /* Matches the header's height */
 }
 
 /* Sidebar Styling */
@@ -49,23 +63,6 @@ body {
 
 .back-button:hover {
     color: #f39c12; 
-}
-
-/* Header Styling */
-header {
-    position: fixed; /* Header remains fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #112950;
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    gap: 20px;
-    flex-wrap: wrap;
 }
 
 /* Ensure sidebar content overlaps the header */
@@ -169,4 +166,36 @@ header h1 {
 
 .sidebar ul li a:hover {
     color: #f39c12;
+}
+
+.manhwa-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.manhwa-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 300px;
+    text-align: center;
+}
+
+.manhwa-card img,
+.manhwa-placeholder {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.manhwa-placeholder {
+    background: #f4f4f4;
+    color: #aaa;
+    font-size: 14px;
+    text-align: center;
+    padding: 50px 0;
 }
