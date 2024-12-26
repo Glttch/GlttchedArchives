@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 23, 2024 at 01:24 AM
+-- Generation Time: Dec 26, 2024 at 06:14 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.26
 
@@ -74,7 +74,21 @@ CREATE TABLE IF NOT EXISTS `category` (
   `category` varchar(100) NOT NULL,
   PRIMARY KEY (`categoryId`),
   UNIQUE KEY `category` (`category`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`categoryId`, `category`) VALUES
+(1, 'Smut'),
+(2, 'Omegaverse'),
+(3, 'Straight'),
+(4, 'Short'),
+(5, 'BL'),
+(6, 'Finished'),
+(7, 'Green Flag'),
+(8, 'Red Flag');
 
 -- --------------------------------------------------------
 
@@ -93,7 +107,15 @@ CREATE TABLE IF NOT EXISTS `manhwa` (
   PRIMARY KEY (`manhwaId`),
   KEY `idx_manhwa_author` (`authorId`),
   KEY `idx_manhwa_artist` (`artistId`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `manhwa`
+--
+
+INSERT INTO `manhwa` (`manhwaId`, `title`, `authorId`, `artistId`, `numOfChapters`, `cover`) VALUES
+(2, 'test', 1, 1, 1, NULL),
+(3, 'test2', 1, 1, 1, NULL);
 
 -- --------------------------------------------------------
 

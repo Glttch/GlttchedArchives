@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-$host = '127.0.0.1'; // Database host
+$host = 'localhost'; // Database host
 $db = 'glttchedarchives'; // Database name
 $user = 'root'; // Database username
 $pass = ''; // Database password

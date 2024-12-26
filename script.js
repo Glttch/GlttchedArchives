@@ -55,3 +55,31 @@ document.addEventListener('DOMContentLoaded', () => {
             manhwaList.innerHTML = '<p>Error loading manhwas.</p>';
         });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const categoryContainer = document.getElementById('category-buttons-container');
+    
+    fetch('php/getCategories.php')
+        .then(response => response.json())
+        .then(categories => {
+            if (categories.length > 0) {
+                categories.forEach(category => {
+                    const label = document.createElement('label');
+                    label.classList.add('category-label');
+                    
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.name = 'categories[]'; // Name the checkboxes to submit as an array
+                    checkbox.value = category.categoryId;
+                    
+                    label.appendChild(checkbox);
+                    label.appendChild(document.createTextNode(category.category));
+                    
+                    categoryContainer.appendChild(label);
+                });
+            } else {
+                console.error('No categories found.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
