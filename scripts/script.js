@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const manhwaList = document.getElementById('manhwaList');
 
     // Fetch manhwas from the server
-    fetch('php/fetchManhwas.php')
+    fetch('/GlttchedArchives/php/fetchManhwas.php')
         .then(response => response.json())
         .then(data => {
             // Clear existing content
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const categoryContainer = document.getElementById('category-buttons-container');
     
-    fetch('php/getCategories.php')
+    fetch('/GlttchedArchives/php/getCategories.php')
         .then(response => response.json())
         .then(categories => {
             if (categories.length > 0) {
