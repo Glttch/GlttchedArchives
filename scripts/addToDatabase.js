@@ -42,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 manhwaCard.innerHTML = `
                     ${coverImg}
                     <h3>${manhwa.title}</h3>
-                    <br>
+                    <p><strong>Author ID:</strong> ${manhwa.authorId}</p>
+                    <p><strong>Artist ID:</strong> ${manhwa.artistId}</p>
                     <p><strong>Chapters:</strong> ${manhwa.numOfChapters}</p>
                 `;
 
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const categoryContainer = document.getElementById('category-buttons-container');
     
-    fetch('GlttchedArchives/php/getCategories.php')
+    fetch('/GlttchedArchives/php/getCategories.php')
         .then(response => response.json())
         .then(categories => {
             if (categories.length > 0) {
@@ -81,4 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .catch(error => console.error('Error:', error));
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('/GlttchedArchives/php/fetchAuthorsArtists.php')
+        .then(response => response.json())
+        .then(data => {
+            const authorSelect = document.getElementById('authorName');
+            const artistSelect = document.getElementById('artistName');
+
+            // Populate authors dropdown
+            data.authors.forEach(author => {
+                const option = document.createElement('option');
+                option.value = author.authorId;
+                option.textContent = author.authorName;
+                authorSelect.appendChild(option);
+            });
+
+            // Populate artists dropdown
+            data.artists.forEach(artist => {
+                const option = document.createElement('option');
+                option.value = artist.artistId;
+                option.textContent = artist.artistName;
+                artistSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching authors and artists:', error));
 });
