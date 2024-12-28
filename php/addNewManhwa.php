@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Insert into the database
     $stmt = $conn->prepare("INSERT INTO manhwa (title, authorId, artistId, numOfChapters, cover) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("siibs", $title, $authorId, $artistId, $numOfChapters, $cover);
+    $stmt->bind_param("siiib", $title, $authorId, $artistId, $numOfChapters, $cover);
+    $stmt->send_long_data(4, $cover);
 
     if ($stmt->execute()) {
         echo "Manhwa added successfully!";

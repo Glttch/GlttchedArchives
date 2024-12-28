@@ -174,9 +174,9 @@ header h1 {
 }
 
 .manhwa-card {
-    width: 250px; /* Set a fixed width */
+    width: 225px; /* Set a fixed width */
     max-width: 100%; /* Ensure cards stay within their container */
-    height: 350px; /* Set a fixed height for consistent card size */
+    height: 325px; /* Set a fixed height for consistent card size */
     background: #fff;
     border: 1px solid #ddd;
     padding: 15px;
@@ -190,14 +190,14 @@ header h1 {
 
 .manhwa-card img {
     width: 100%; /* Full width of the card */
-    height: 300px; /* Set a fixed height for the image */
+    height: 250px; /* Set a fixed height for the image */
     object-fit: cover; /* Ensure the image covers the container */
     border-radius: 5px 5px 0 0; /* Round the top corners */
 }
 
 .manhwa-card h3 {
     margin-top: 5px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     color: #333;
 }
