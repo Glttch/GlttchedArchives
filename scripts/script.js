@@ -33,19 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
             data.forEach(manhwa => {
                 const manhwaCard = document.createElement('div');
                 manhwaCard.classList.add('manhwa-card');
-
-                // Handle cover image
-                const coverImg = manhwa.cover 
-                    ? `<img src="${manhwa.cover}" alt="Cover Image" class="manhwa-cover">`
-                    : '<div class="manhwa-placeholder">No Cover</div>';
-
+            
                 manhwaCard.innerHTML = `
-                    ${coverImg}
                     <h3>${manhwa.title}</h3>
-                    <br>
+                    <p><strong>Author ID:</strong> ${manhwa.authorId}</p>
+                    <p><strong>Artist ID:</strong> ${manhwa.artistId}</p>
                     <p><strong>Chapters:</strong> ${manhwa.numOfChapters}</p>
                 `;
-
+            
                 manhwaList.appendChild(manhwaCard);
             });
         })
