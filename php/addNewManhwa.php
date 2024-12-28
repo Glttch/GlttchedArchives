@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $authorId = $_POST['authorName'];
     $artistId = $_POST['artistName'];
     $numOfChapters = $_POST['numOfChapters'];
+    $categoryIds = $_POST['categories'];
 
     // Check if a file is uploaded
     if (isset($_FILES['coverImage']) && $_FILES['coverImage']['error'] == UPLOAD_ERR_OK) {
@@ -30,6 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Error: " . $stmt->error;
     }
+
+    // Get the last inserted manhwa ID
+    $manhwaId = $conn->insert_id;
+    // Insert into manhwa_category table for each category
+    foreach ($categoryIds as $categoryId) {
+        $stmt = $conn->prepare("INSERT INTO manhwa_category (manhwaId, categoryId) VALUES (?, ?)");
+        $stmt->bind_param("ii", $manhwaId, $categoryId);
+        if (!$stmt->execute()) {
+            throw new Exception("Error inserting manhwa_category: " . $stmt->error);
+        }
+    }
+    // Commit transaction
+    $conn->commit();
 
     $stmt->close();
 }

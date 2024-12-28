@@ -22,8 +22,8 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         // Encode the cover as base64
         $row['cover'] = $row['cover'] 
-            ? 'data:image/jpeg;base64,' . base64_encode($row['cover']) 
-            : null;
+        ? 'data:image/jpeg;base64,' . base64_encode($row['cover']) 
+        : null;
         $manhwas[] = $row;
     }
 }
