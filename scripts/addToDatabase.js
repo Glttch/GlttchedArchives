@@ -84,28 +84,30 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error:', error));
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('/GlttchedArchives/php/fetchAuthorsArtists.php')
-        .then(response => response.json())
-        .then(data => {
-            const authorSelect = document.getElementById('authorName');
-            const artistSelect = document.getElementById('artistName');
+document.addEventListener('DOMContentLoaded', () => {
+    const authorSelect = document.getElementById('authorName');
+    const artistSelect = document.getElementById('artistName');
 
-            // Populate authors dropdown
-            data.authors.forEach(author => {
-                const option = document.createElement('option');
-                option.value = author.authorId;
-                option.textContent = author.authorName;
-                authorSelect.appendChild(option);
-            });
+    if (authorSelect && artistSelect) {
+        fetch('/GlttchedArchives/php/fetchAuthorsArtists.php')
+            .then(response => response.json())
+            .then(data => {
+                // Populate authors dropdown
+                data.authors.forEach(author => {
+                    const option = document.createElement('option');
+                    option.value = author.authorId;
+                    option.textContent = author.authorName;
+                    authorSelect.appendChild(option);
+                });
 
-            // Populate artists dropdown
-            data.artists.forEach(artist => {
-                const option = document.createElement('option');
-                option.value = artist.artistId;
-                option.textContent = artist.artistName;
-                artistSelect.appendChild(option);
-            });
-        })
-        .catch(error => console.error('Error fetching authors and artists:', error));
+                // Populate artists dropdown
+                data.artists.forEach(artist => {
+                    const option = document.createElement('option');
+                    option.value = artist.artistId;
+                    option.textContent = artist.artistName;
+                    artistSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching authors and artists:', error));
+    }
 });

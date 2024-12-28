@@ -1,0 +1,386 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+header {
+    position: fixed; /* Ensures the header stays fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #112950;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    gap: 20px;
+    flex-wrap: wrap;
+    height: 95px; /* Define the header height */
+}
+
+body {
+    padding-top: 110px; /* Matches the header's height */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed; 
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #444;
+    color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    padding: 20px;
+    z-index: 100; 
+}
+
+.sidebar.active {
+    left: 0; 
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem; 
+}
+
+.back-button:hover {
+    color: #f39c12; 
+}
+
+/* Ensure sidebar content overlaps the header */
+.sidebar-content {
+    position: relative; /* Relative positioning to allow overlap */
+    z-index: 101; /* Ensure sidebar content stays above the header */
+}
+
+header h1 {
+    font-size: 2rem; 
+    margin: 0; 
+    color: #f39c12; 
+    white-space: nowrap;
+    margin-right: auto; 
+}
+
+/* Search Container */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #112950; 
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    gap: 10px;
+    height: 60px;
+}
+
+.search-container input {
+    flex-grow: 1; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 100%; 
+}
+
+.search-button {
+    background-color: #f39c12; 
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; 
+    height: 40px; 
+}
+
+.search-button:hover {
+    background-color: #e67e22; 
+}
+
+/* Filter Container */
+.filter-container {
+    display: flex;
+    align-items: center; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    font-size: 16px; 
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Sidebar Button */
+.menu-button {
+    font-size: 1.5rem;
+    background-color: #112950; 
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menu-button:hover {
+    color: #f39c12; 
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #f39c12;
+}
+
+.manhwa-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.manhwa-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 300px;
+    text-align: center;
+}
+
+.manhwa-card img,
+.manhwa-placeholder {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.manhwa-placeholder {
+    background: #f4f4f4;
+    color: #aaa;
+    font-size: 14px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.category-buttons-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.category-button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.category-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the forms */
+.form-container {
+    border: 2px solid #ddd; /* Border for each box */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    margin: 20px auto; /* Margin between boxes */
+    max-width: 500px; /* Maximum width of each box */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the box */
+    text-align: center; /* Center align content */
+}
+
+/* Headings inside forms */
+.form-container h1 {
+    font-size: 1.8rem;
+    color: #112950; /* Header color */
+    margin-bottom: 20px;
+}
+
+/* Form labels */
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Form inputs */
+.form-container input, 
+.form-container select, 
+.form-container button {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block; /* Ensures elements stack vertically */
+}
+
+/* Form buttons */
+.form-container button {
+    background-color: #112950;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #f39c12;
+}
+
+/* New styles added below */
+
+/* Container for forms */
+.forms-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+/* Add Manhwa Form */
+.add-manhwa {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-manhwa h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-manhwa form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.add-manhwa form input,
+.add-manhwa form select,
+.add-manhwa form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.add-manhwa form button {
+    background-color: #112950;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-manhwa form button:hover {
+    background-color: #0a1d3b;
+}
+
+/* Add Author and Artist Forms */
+.add-author-artist {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-author,
+.add-artist {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-author h1,
+.add-artist h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-author form label,
+.add-artist form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.add-author form input,
+.add-artist form input,
+.add-author form button,
+.add-artist form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.add-author form button,
+.add-artist form button {
+    background-color: #112950;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-author form button:hover,
+.add-artist form button:hover {
+    background-color: #0a1d3b;
+}
