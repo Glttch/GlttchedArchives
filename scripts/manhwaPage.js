@@ -31,17 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Loop through and display manhwas
             data.forEach(manhwa => {
-                const manhwaCard = document.createElement('div');
+                const manhwaCard = document.createElement('button'); // Change to a button element
                 manhwaCard.classList.add('manhwa-card');
-                
                 manhwaCard.innerHTML = `
                     ${manhwa.cover ? `<img src="${manhwa.cover}" alt="Cover Image">` : ''}
                     <h3>${manhwa.title}</h3>
                     <p><strong>Chapters:</strong> ${manhwa.numOfChapters}</p>
                 `;
                 
+                
+                manhwaCard.addEventListener('click', () => {
+                    const manhwaId = manhwa.manhwaId; // Get the manhwaId
+                    window.location.href = `manhwaInfo.html?id=${manhwaId}`;
+                });
+            
                 manhwaList.appendChild(manhwaCard);
             });
+            
+            
         })
         .catch(error => {
             console.error('Error fetching manhwas:', error);
