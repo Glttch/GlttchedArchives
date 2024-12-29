@@ -13,6 +13,10 @@ backButton.addEventListener('click', () => {
     sidebar.classList.remove('active');
 });
 
+function redirectToAddManhwa() {
+    window.location.href = 'addNewManhwa.html'; // Redirects to the addNewManhwa.html page
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const manhwaList = document.getElementById('manhwaList');
 
@@ -31,14 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Loop through and display manhwas
             data.forEach(manhwa => {
-                const manhwaCard = document.createElement('button'); // Change to a button element
+                const manhwaCard = document.createElement('div'); // Using div to hold content
                 manhwaCard.classList.add('manhwa-card');
                 manhwaCard.innerHTML = `
                     ${manhwa.cover ? `<img src="${manhwa.cover}" alt="Cover Image">` : ''}
                     <h3>${manhwa.title}</h3>
                     <p><strong>Chapters:</strong> ${manhwa.numOfChapters}</p>
+                    <br>
                 `;
-                
                 
                 manhwaCard.addEventListener('click', () => {
                     const manhwaId = manhwa.manhwaId; // Get the manhwaId
@@ -48,10 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 manhwaList.appendChild(manhwaCard);
             });
             
-            
         })
         .catch(error => {
             console.error('Error fetching manhwas:', error);
             manhwaList.innerHTML = '<p>Error loading manhwas.</p>';
         });
 });
+
+

@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
         // Encode the cover image as Base64
         if (isset($data['cover'])) {
             $data['cover'] = base64_encode($data['cover']);
-        }
+        }        
 
         echo json_encode($data);
     } else {

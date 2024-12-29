@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Manhwa Details</title>
     <link rel="stylesheet" href="../styles/manhwaInfo.css">
 </head>
 <body>
@@ -13,13 +13,24 @@
     </header>
 
     <main>
-        <div id="manhwaDetails">
+        <div class="manhwa-details">
             <img id="manhwaCover" alt="Manhwa Cover">
-            <h2 id="manhwaTitle">Loading...</h2>
-            <p><strong>Author:</strong> <span id="manhwaAuthor">Loading...</span></p>
-            <p><strong>Artist:</strong> <span id="manhwaArtist">Loading...</span></p>
-            <p><strong>Chapters:</strong> <span id="manhwaChapters">Loading...</span></p>
-            <p><strong>Categories:</strong> <span id="manhwaCategories">Loading...</span></p>
+            <div>
+                <h2 id="manhwaTitle">Loading...</h2>
+                <p><strong>Author:</strong> <span id="manhwaAuthor">Loading...</span></p>
+                <p><strong>Artist:</strong> <span id="manhwaArtist">Loading...</span></p>
+                <p><strong>Chapters:</strong> <span id="manhwaChapters">Loading...</span></p>
+                <p><strong>Categories:</strong> <span id="manhwaCategories">Loading...</span></p>
+
+                <!-- Rating Buttons -->
+                <div class="rating-buttons">
+                    <button>★</button>
+                    <button>★</button>
+                    <button>★</button>
+                    <button>★</button>
+                    <button>★</button>
+                </div>
+            </div>
         </div>
         
         <script src="../scripts/manhwaInfo.js" defer></script>

@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(data.error);
                 window.location.href = 'manhwasPage.html';
             } else {
-                document.getElementById('manhwaCover').src = `data:image/jpeg;base64,${btoa(data.cover)}` || 'style/images/default-cover.png';
+                console.log(data.cover);
+                document.getElementById('manhwaCover').src = data.cover ? `data:image/jpeg;base64,${data.cover}` : 'style/images/default-cover.png';
                 document.getElementById('manhwaTitle').textContent = data.title || 'Untitled';
                 document.getElementById('manhwaAuthor').textContent = data.authorName || 'Unknown';
                 document.getElementById('manhwaArtist').textContent = data.artistName || 'Unknown';
