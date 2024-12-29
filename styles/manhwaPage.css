@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     padding-top: 110px;
-    background-color: #e2e2df;
+    background-color: #3b3d42; /* Keeps the overall page background color */
 }
 
 main {
@@ -18,7 +18,10 @@ main {
     justify-content: center; /* Vertically centers the child elements */
     min-height: 100vh; /* Ensures it takes the full height of the viewport */
     padding: 20px; /* Optional padding */
-    background-color: #e2e2df;
+    background-image: url('../styles/images/dark-gray-bg.jpg'); /* Set your background image */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
 }
 
 /* Body Styling */
@@ -35,7 +38,7 @@ header {
     background-color: #131212;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    height: 95px; /* Define the header height */
+    height: 110px; /* Define the header height */
 }
 
 header h1 {
@@ -173,10 +176,11 @@ header ul li:hover {
 
 h2 {
     font-size: 2rem; /* Sets the font size to 2rem */
-    color: #333; /* Sets the color to a dark gray */
+    color: #64b4c3; /* Sets the color to a dark gray */
     margin-bottom: 1rem; /* Adds some bottom margin for spacing */
+    margin-left: 55px;
     font-weight: bold; /* Makes the font bold */
-    text-align: center; /* Centers the text */
+    text-align: left; /* Centers the text */
 }
 
 #manhwaDisplay {
@@ -186,15 +190,16 @@ h2 {
     padding: 20px; /* Adds some spacing inside the section */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
     border-radius: 5px; /* Optional rounded corners */
-    background-color: #b3b4ba;
+    background-color: rgba(179, 180, 186, 0.3); /* Slightly transparent background */
 }
 
 .manhwa-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Added gap between cards */
+    flex-wrap: wrap; /* Allows cards to wrap to the next line if needed */
+    justify-content: center; /* Centers cards horizontally */
+    align-items: center; /* Centers cards vertically (if the container has height) */
+    gap: 50px; /* Space between cards */
     margin-top: 20px;
-    background-color: #b3b4ba;
 }
 
 .manhwa-card {
@@ -208,23 +213,53 @@ h2 {
     background-color: #fff; /* Optional background color */
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     cursor: pointer; /* Indicates it's clickable */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     gap: 10px; /* Added gap inside the card between image and text */
+    position: relative; /* Needed for the pseudo-element */
 }
 
 .manhwa-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 
+                0 0 20px rgba(100, 180, 195, 0.7); /* Adds the #64b4c3 glow */
 }
+
+.manhwa-card:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(100, 180, 195, 0.7); /* Glow effect with #64b4c3 */
+    z-index: -1; /* Places it behind the card */
+    transition: opacity 0.3s ease;
+    opacity: 1; /* Makes the glow visible on hover */
+}
+
+.manhwa-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(100, 180, 195, 0); /* Initial state with no glow */
+    z-index: -1; /* Places it behind the card */
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Glow is hidden by default */
+}
+
 
 .manhwa-card img {
     width: 100%;
-    height: 275px;
+    height: 270px;
     object-fit: cover;
     border-radius: 5px 5px 0 0;
 }
@@ -241,7 +276,6 @@ h2 {
     color: #666;
 }
 
-/* Remove the default button styling */
 
 
 /* Sidebar Styling */
