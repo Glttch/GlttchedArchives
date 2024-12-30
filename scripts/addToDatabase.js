@@ -68,3 +68,24 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error fetching authors and artists:', error));
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const ratingContainer = document.getElementById('rating-container');
+    
+    // Add 5 input fields for 5-star ratings
+    for (let i = 1; i <= 5; i++) {
+        const label = document.createElement('label');
+        label.textContent = `Rating ${i}:`;
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.name = 'ratings[]'; // Naming each rating input to submit as an array
+        input.min = '1';
+        input.max = '5';
+        input.step = '1';
+        input.required = true;
+
+        ratingContainer.appendChild(label);
+        ratingContainer.appendChild(input);
+        ratingContainer.appendChild(document.createElement('br'));
+    }
+});

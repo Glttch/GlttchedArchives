@@ -12,28 +12,45 @@
         <button onclick="window.location.href='manhwasPage.html'">Back to List</button>
     </header>
 
-    <main>
-        <div class="manhwa-details">
-            <img id="manhwaCover" alt="Manhwa Cover">
-            <div>
-                <h2 id="manhwaTitle">Loading...</h2>
-                <p><strong>Author:</strong> <span id="manhwaAuthor">Loading...</span></p>
-                <p><strong>Artist:</strong> <span id="manhwaArtist">Loading...</span></p>
-                <p><strong>Chapters:</strong> <span id="manhwaChapters">Loading...</span></p>
-                <p><strong>Categories:</strong> <span id="manhwaCategories">Loading...</span></p>
+    <input type="hidden" id="manhwaId" value="MANHWA_ID_HERE">
 
-                <!-- Rating Buttons -->
-                <div class="rating-buttons">
-                    <button>★</button>
-                    <button>★</button>
-                    <button>★</button>
-                    <button>★</button>
-                    <button>★</button>
+    <main>
+        <div class="manhwa-layout">
+            <h1 id="manhwaTitle">Loading...</h1>
+            <div class="poster-details-container">
+                <div class="poster">
+                    <img id="manhwaCover" alt="Manhwa Cover">
+                </div>
+                <div class="details">
+                    <p><strong>Author:</strong> <span id="manhwaAuthor">Loading...</span></p>
+                    <p><strong>Artist:</strong> <span id="manhwaArtist">Loading...</span></p>
+                    <p><strong>Chapters:</strong> <span id="manhwaChapters">Loading...</span></p>
+                    <p><strong>Categories:</strong> <span id="manhwaCategories">Loading...</span></p>
                 </div>
             </div>
         </div>
-        
-        <script src="../scripts/manhwaInfo.js" defer></script>
+        <div class="annotation-section">
+            <div class="rating-section">
+                <h2>Manhwa Rating <span id="average-rating"></span></h2>
+                <h3>Story / Plot: </h3>
+                <div class="storyplot-rating">
+                    
+                </div>
+                <h3>Artstyle: </h3>
+                <div class="artstyle-rating">
+                    
+                </div>
+                <h3>Characters: </h3>
+                <div class="character-rating">
+                    
+                </div>
+            </div>
+
+            <textarea placeholder="Add your annotations here..."></textarea>
+            <button onclick="submitAnnotation()">Submit</button>
+        </div>
     </main>
+    
+    <script src="../scripts/manhwaInfo.js" defer></script>
 </body>
 </html>
