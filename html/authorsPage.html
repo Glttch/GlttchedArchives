@@ -3,28 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glttched Archives</title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <title>Glttched Archives - Authors</title>
+    <link rel="stylesheet" href="../styles/authorsPage.css">
 </head>
 <body>
     <header>
         <button class="menu-button" id="menuButton">☰</button>
+        <h1>GlttchedArchives</h1>
         <div class="search-container">
+            <input type="text" placeholder="Search...">
             <div class="filter-container">
                 <select>
                     <option value="all">All</option>
-                    <option value="category1">Category 1</option>
-                    <option value="category2">Category 2</option>
-                    <option value="category3">Category 3</option>
                 </select>
             </div>
-            <input type="text" placeholder="Search...">
-            <button class="search-button">Search</button>
         </div>
+        <ul>
+            <li><a href="mainHomepage.html">Home</a></li>
+            <li><a href="manhwasPage.html">Manhwas</a></li>
+            <li><a href="authorsPage.html">Authors</a></li>
+            <li><a href="artistsPage.html">Artists</a></li>
+        </ul>
     </header>
 
     <main>
-    
+        <h1>Authors</h1>
+        <ul id="authors-container" class="author-list">
+            <!-- Authors and their manhwas will be dynamically inserted here -->
+        </ul>
+
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <button class="back-button" id="backButton">←</button>
@@ -38,7 +45,7 @@
             </ul>
         </div>
     
-        <script src="../scripts/script.js"></script>
+        <script src="../scripts/authorsPage.js"></script>
     </main>
 </body>
 </html>
