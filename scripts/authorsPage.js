@@ -16,7 +16,7 @@ async function fetchAuthors() {
             throw new Error('Network response was not ok ' + response.statusText);
         }
         const authors = await response.json(); // Parse the JSON response
-        console.log('Fetched authors from JS:', authors);
+        console.log('Fetched authors:', authors); // Log fetched authors
         displayAuthors(authors);
     } catch (error) {
         console.error('Error fetching authors:', error);
@@ -28,11 +28,9 @@ function displayAuthors(authors) {
     const authorsContainer = document.getElementById('authors-container');
     authorsContainer.innerHTML = ''; // Clear previous content
     
-    console.log('Displaying authors:', authors); // Log authors for debugging
-
     authors.forEach(author => {
         const authorElement = document.createElement('li');
-        authorElement.innerHTML = `<strong>${author.authorName}</strong>`;
+        authorElement.innerHTML = `<strong>${author.authorName}</strong>`; // 'name' instead of 'authorName'
         
         if (author.manhwas && Array.isArray(author.manhwas)) {
             const manhwaList = document.createElement('ul');
@@ -51,11 +49,19 @@ function displayAuthors(authors) {
 }
 
 
+
 // Add event listener to menu button for sidebar toggle
 menuButton.addEventListener('click', toggleSidebar);
 
 // Add event listener to back button for closing sidebar
 backButton.addEventListener('click', closeSidebar);
 
+fetchAuthors().then(authors => {
+    console.log('Fetched authors:', authors); // Log the fetched authors
+    displayAuthors(authors);
+});
+
+
 // Call the fetchAuthors function to load the data
 fetchAuthors();
+

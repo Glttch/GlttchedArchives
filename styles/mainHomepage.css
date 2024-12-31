@@ -1,0 +1,355 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: 75px;
+}
+
+/* Header */
+header {
+    position: fixed; /* Ensures the header stays fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spaces out the elements */
+    padding: 20px;
+    background-color: #131212;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: 110px; /* Define the header height */
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0; 
+    color: transparent; /* Hide the default color */
+    white-space: nowrap;
+    margin-left: 30px; /* Added space between the button and the heading */
+    margin-right: 30px;
+    background: linear-gradient(90deg, #d9dad5 50%, #64b4c3 50%);
+    -webkit-background-clip: text; /* Ensures the gradient applies to text */
+    color: transparent; /* For older browsers */
+    text-fill-color: transparent; /* Ensures compatibility with older browsers */
+}
+
+header .menu-button {
+    font-size: 1.5rem;
+    background-color: #131212;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds spacing between the icon and the text in the button */
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 65px; /* Increased the gap between list items */
+    margin-right: 30px; /* Push the items to the right */
+}
+
+header ul li {
+    font-size: 20px; /* Increased font size */
+    color: white !important; /* Make the text white */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: border-bottom 0.3s ease-in-out; /* Smooth transition for the border-bottom effect */
+}
+
+header ul li a {
+    color: white; /* Ensure the default color is white */
+    text-decoration: none; /* Remove default underline */
+    font-size: 20px; /* Maintain larger font size */
+}
+
+header ul li a:hover {
+    color: #64b4c3; /* Change text color to match line */
+}
+
+header ul li:hover {
+    border-bottom: 2px solid #64b4c3; /* Create a line under the text on hover */
+}  
+
+/* Welcome Section */
+.welcome-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    background: url('../styles/images/main_bg.gif') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    filter: brightness(70%);
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+}
+
+.welcome-content p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Categories Section */
+.categories-section, .completed-section, .ongoing-section {
+    padding: 20px;
+}
+
+.categories-buttons, .manhwas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.categories-buttons button, .manhwas-grid div {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.categories-buttons button:hover, .manhwas-grid div:hover {
+    background-color: #ddd;
+}
+
+.categories-buttons button {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 22px;
+    padding: 25px 40px;
+    background-color: #64b4c3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 10px; /* Optional: add some spacing between buttons */
+}
+/* Completed & Ongoing Sections */
+.completed-section,
+.ongoing-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #dad5d5;
+    border-radius: 12px;
+    background-color: #ebe6e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+/* Section Text */
+.completed-section h3{
+    font-size: 40px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.ongoing-section h3 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.completed-section p{
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.ongoing-section p {
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.completed-section button,
+.ongoing-section button {
+    display: inline-block;
+    font-size: 16px;
+    padding: 15px 30px;
+    background-color: #64b4c3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.ongoing-section button {
+    display: inline-block;
+    font-size: 16px;
+    padding: 15px 30px;
+    background-color: #64b4c3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-left: 52%;
+}
+
+.completed-section button:hover,
+.ongoing-section button:hover {
+    background-color: #5a54e6;
+    transform: scale(1.05);
+}
+
+.completed-section button:active,
+.ongoing-section button:active {
+    transform: scale(0.95);
+}
+
+/* Manhwas Grid */
+.manhwas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 120px); /* Fixed width for each card */
+    gap: 150px;
+    justify-content: center; /* Center-align the grid items */
+    flex: 1;
+}
+
+.manhwas-grid div {
+    position: relative;
+    width: 225px; /* Fixed width for the cards */
+    height: 325px; /* Fixed height for the cards */
+    border-radius: 0; /* Remove border-radius */
+    overflow: hidden;
+    transition: transform 0.2s;
+    background-color: #fff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.manhwas-grid div img {
+    width: 100%;
+    height: 100%; /* Ensures the image fills the card */
+    object-fit: cover; /* Maintains aspect ratio while filling the space */
+    transition: filter 0.3s;
+}
+
+.manhwas-grid div:hover img {
+    filter: brightness(50%);
+}
+
+/* Title Overlay */
+.manhwas-grid div .manhwa-title {
+    position: absolute;
+    bottom: 10px; /* Position the title near the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.7); /* Dark background for readability */
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 16px; /* Adjust font size */
+    opacity: 0;
+    transition: opacity 0.3s, font-size 0.3s;
+}
+
+.manhwas-grid div:hover .manhwa-title {
+    opacity: 1;
+    font-size: 18px; /* Make it slightly larger on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .completed-section,
+    .ongoing-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .manhwas-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed; 
+    top: 0;
+    left: -550px; 
+    width: 250px;
+    height: 100%;
+    background-color: #444;
+    color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    padding: 20px;
+    z-index: 100; 
+}
+
+.sidebar.active {
+    left: 0; 
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem; 
+}
+
+.back-button:hover {
+    color: #f39c12; 
+}
+
+/* Ensure sidebar content overlaps the header */
+.sidebar-content {
+    position: relative; /* Relative positioning to allow overlap */
+    z-index: 101; /* Ensure sidebar content stays above the header */
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #f39c12;
+}
+
+
+
+
