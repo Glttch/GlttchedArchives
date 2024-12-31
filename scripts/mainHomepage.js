@@ -85,3 +85,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselRow = document.getElementById('recentManhwas');
+
+    const fetchRecentManhwas = async () => {
+        try {
+            const response = await fetch('/GlttchedArchives/php/recentManhwas.php');
+            const data = await response.json();
+
+            if (!Array.isArray(data)) throw new Error('Invalid data format');
+
+            data.forEach(manhwa => {
+                const card = document.createElement('div');
+                card.classList.add('manhwa-card');
+                card.innerHTML = `
+                    <img src="data:image/jpeg;base64,${manhwa.cover}" alt="${manhwa.title}">
+                    <h3>${manhwa.title}</h3>
+                `;
+                carouselRow.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error('Error fetching recent manhwas:', error);
+        }
+    };
+
+    fetchRecentManhwas();
+});
+
+
+
+
+
+
+
+
+

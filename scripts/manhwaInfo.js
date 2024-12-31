@@ -46,6 +46,7 @@ function fetchRating(manhwaId) {
         displayStars('storyplot-rating', data.plotStory);
         displayStars('artstyle-rating', data.artStyle);
         displayStars('character-rating', data.characters);
+        document.getElementById('average-rating').textContent = data.averageRating || 'N/A';
     })
     .catch(error => console.error('Error fetching rating:', error));
 }

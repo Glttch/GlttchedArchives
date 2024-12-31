@@ -1,10 +1,14 @@
 /* Global Styles */
-body, html {
+body, html, main {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    padding-top: 75px;
+    padding-top: 50px;
+    background-color: #363535; /* Set your background image */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
 }
 
 /* Header */
@@ -20,7 +24,7 @@ header {
     background-color: #131212;
     color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    height: 110px; /* Define the header height */
+    height: 80px; /* Define the header height */
 }
 
 header h1 {
@@ -80,15 +84,15 @@ header ul li:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45vh;
+    height: 50vh;
     background: url('../styles/images/main_bg.gif') center/cover no-repeat;
     color: white;
     text-align: center;
-    filter: brightness(70%);
+    filter: brightness(85%);
 }
 
 .welcome-content h1 {
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .welcome-content p {
@@ -116,14 +120,18 @@ header ul li:hover {
     transition: background-color 0.3s ease;
 }
 
-.categories-buttons button:hover, .manhwas-grid div:hover {
+.categories-buttons button:hover{
+    background-color: #477e88;
+}
+
+.manhwas-grid div:hover {
     background-color: #ddd;
 }
 
 .categories-buttons button {
     font-weight: bold;
     display: inline-block;
-    font-size: 22px;
+    font-size: 25px;
     padding: 25px 40px;
     background-color: #64b4c3;
     color: #fff;
@@ -282,6 +290,69 @@ header ul li:hover {
     .manhwas-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
+}
+
+.recently-added {
+    margin: 20px 0; /* Vertical spacing */
+    text-align: center;
+    background-color: #363535;
+    padding: 20px; /* Padding inside the box */
+    width: 97.5%; /* Ensures it spans the entire screen */
+}
+
+.recently-added h2 {
+    font-size: 2rem; /* Adjust font size of the heading */
+    margin-bottom: 15px;
+    color: #64b4c3; /* Darker color for the heading */
+    text-align: left;
+}
+
+.recently-added p {
+    font-size: 1rem; /* Adjust font size of the paragraph */
+    color: #555; /* Subtle text color */
+}
+.manhwa-carousel {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+    background-color: #363535;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+#recentManhwas {
+    display: flex;
+    overflow: hidden; /* Prevent items from overflowing */
+    scroll-snap-type: x mandatory; /* Ensure snap to center */
+    width: 100%; /* Full width to ensure carousel fits */
+}
+
+
+.manhwa-card {
+    flex: 0 0 auto; /* Allow flexible width */
+    width: 205px; /* Set a fixed width for each card */
+    margin-right: 25px; /* Add spacing between cards */
+    background-color: #fff; /* Optional background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional card shadow */
+    border-radius: 8px; /* Optional rounded corners */
+    text-align: center;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.manhwa-card img {
+    width: 100%; /* Full width of the card */
+    height: 280px; /* Maintain aspect ratio */
+    border-bottom: 1px solid #ddd; /* Optional border at the bottom */
+}
+
+.manhwa-card h3 {
+    padding: 16px; /* Space around the title */
+    font-size: 18px; /* Title font size */
+    color: #333; /* Title color */
+    margin: 0; /* Remove default margin */
 }
 
 

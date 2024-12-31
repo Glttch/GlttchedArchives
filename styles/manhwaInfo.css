@@ -50,6 +50,12 @@ main {
     flex: 0 0 45%;  
 }
 
+#average-rating {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #6da1dd;
+}
+
 .manhwa-layout h1 {
     margin-left: 40px;
     font-size: 40px;
