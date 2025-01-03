@@ -29,6 +29,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
+    const categories = await fetchData("/GlttchedArchives/php/getCategories.php");
+    categories.slice(0, 6).forEach(category => {
+        const button = document.createElement("button");
+        button.textContent = category.category; // Use the category name
+        categoriesButtons.appendChild(button);
+    });
+
     // Fetch manhwas
     const manhwas = await fetchData("/GlttchedArchives/php/fetchManhwas.php");
 
