@@ -15,10 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $plotStory = $_POST['plotStory'];
     $characters = $_POST['characters'];
     $categoryIds = $_POST['categories'];
+    $status = $_POST['status']; 
 
     // Insert the manhwa data
-    $stmt = $conn->prepare("INSERT INTO manhwa (title, authorId, artistId, numOfChapters, cover) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("siiib", $title, $authorId, $artistId, $numOfChapters, $cover);
+    $stmt = $conn->prepare("INSERT INTO manhwa (title, authorId, artistId, numOfChapters, cover, status) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("siiibs", $title, $authorId, $artistId, $numOfChapters, $cover, $status);
     $stmt->send_long_data(4, $cover);
 
     if ($stmt->execute()) {
