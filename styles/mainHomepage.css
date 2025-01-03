@@ -142,6 +142,31 @@ header ul li:hover {
     transition: background-color 0.3s, transform 0.2s;
     margin-right: 10px; /* Optional: add some spacing between buttons */
 }
+
+/* Lists Section */
+.list-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Add some space between the columns */
+}
+
+.currently-reading, .reading-list {
+    width: 50%; /* Set each column to take up 48% of the width */
+    gap: 10px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #dad5d5;
+    border-radius: 12px;
+    background-color: #ebe6e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.currently-reading h2, .reading-list h2 {
+    margin-bottom: 10px; /* Adjust margin for heading spacing */
+}
+
+
 /* Completed & Ongoing Sections */
 .completed-section,
 .ongoing-section {

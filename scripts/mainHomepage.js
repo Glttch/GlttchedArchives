@@ -37,11 +37,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Fetch manhwas
-    const manhwas = await fetchData("/GlttchedArchives/php/fetchManhwas.php");
+    // const manhwas = await fetchData("/GlttchedArchives/php/fetchManhwas.php");
+    const completed = await fetchData("/GlttchedArchives/php/fetchCompleted.php");
+    const ongoing = await fetchData("/GlttchedArchives/php/fetchOngoing.php");
 
     // Separate completed and ongoing manhwas
-    const completed = manhwas.filter(manhwa => manhwa.status === 'Finished');
-    const ongoing = manhwas.filter(manhwa => manhwa.status === 'Ongoing');
+    // const completed = manhwas.filter(manhwa => manhwa.status === 'Finished');
+    // const ongoing = manhwas.filter(manhwa => manhwa.status === 'Ongoing');
 
     // Populate completed manhwas (random 5)
     const randomCompleted = completed.sort(() => 0.5 - Math.random()).slice(0, 5);
