@@ -14,7 +14,6 @@ backButton.addEventListener('click', () => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const categoriesButtons = document.getElementById("categoriesButtons");
     const completedManhwas = document.getElementById("completedManhwas");
     const ongoingManhwas = document.getElementById("ongoingManhwas");
 
@@ -30,20 +29,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
-    // Fetch categories
-    const categories = await fetchData("/GlttchedArchives/php/getCategories.php");
-    categories.slice(0, 6).forEach(category => {
-        const button = document.createElement("button");
-        button.textContent = category.category; // Use the category name
-        categoriesButtons.appendChild(button);
-    });
-
     // Fetch manhwas
     const manhwas = await fetchData("/GlttchedArchives/php/fetchManhwas.php");
 
     // Separate completed and ongoing manhwas
-    const completed = manhwas.filter(manhwa => !manhwa.finished); // Adjust filter logic if needed
-    const ongoing = manhwas.filter(manhwa => !manhwa.finished); // Adjust filter logic if needed
+    const completed = manhwas.filter(manhwa => manhwa.status === 'Finished');
+    const ongoing = manhwas.filter(manhwa => manhwa.status === 'Ongoing');
 
     // Populate completed manhwas (random 5)
     const randomCompleted = completed.sort(() => 0.5 - Math.random()).slice(0, 5);
@@ -82,8 +73,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         ongoingManhwas.appendChild(div);
     });
-
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const carouselRow = document.getElementById('recentManhwas');

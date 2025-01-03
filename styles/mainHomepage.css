@@ -19,7 +19,7 @@ header {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Spaces out the elements */
+    justify-content: space-between; /* Aligns the menu button and heading to the left */
     padding: 20px;
     background-color: #131212;
     color: white;
@@ -28,16 +28,14 @@ header {
 }
 
 header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 0; 
     color: transparent; /* Hide the default color */
     white-space: nowrap;
-    margin-left: 30px; /* Added space between the button and the heading */
-    margin-right: 30px;
     background: linear-gradient(90deg, #d9dad5 50%, #64b4c3 50%);
     -webkit-background-clip: text; /* Ensures the gradient applies to text */
-    color: transparent; /* For older browsers */
     text-fill-color: transparent; /* Ensures compatibility with older browsers */
+    margin-left: 20px;
 }
 
 header .menu-button {
@@ -55,11 +53,13 @@ header ul {
     list-style: none;
     display: flex;
     gap: 65px; /* Increased the gap between list items */
-    margin-right: 30px; /* Push the items to the right */
+    margin-right: 250px; /* Push the items to the right */
+    justify-content: center; /* Center the list items horizontally */
+    flex-grow: 1; /* Allow list items to fill space */
 }
 
 header ul li {
-    font-size: 20px; /* Increased font size */
+    font-size: 22px; /* Increased font size */
     color: white !important; /* Make the text white */
     cursor: pointer; /* Pointer cursor on hover */
     transition: border-bottom 0.3s ease-in-out; /* Smooth transition for the border-bottom effect */
@@ -68,7 +68,7 @@ header ul li {
 header ul li a {
     color: white; /* Ensure the default color is white */
     text-decoration: none; /* Remove default underline */
-    font-size: 20px; /* Maintain larger font size */
+    font-size: 22px; /* Maintain larger font size */
 }
 
 header ul li a:hover {
@@ -77,7 +77,8 @@ header ul li a:hover {
 
 header ul li:hover {
     border-bottom: 2px solid #64b4c3; /* Create a line under the text on hover */
-}  
+}
+
 
 /* Welcome Section */
 .welcome-screen {

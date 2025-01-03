@@ -13,8 +13,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all manhwas
-$sql = "SELECT manhwaId, title, authorId, artistId, numOfChapters, cover FROM manhwa";
+// Fetch all manhwas with status filtering
+$sql = "SELECT manhwaId, title, authorId, artistId, numOfChapters, cover, status FROM manhwa WHERE status = 'Ongoing' OR status = 'Finished'";
 $result = $conn->query($sql);
 
 $manhwas = [];
