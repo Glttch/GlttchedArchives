@@ -28,12 +28,23 @@
         </div>
         <div class="list-section">
             <div class="currently-reading">
-                <h2>Currently Reading: </h2>
-
+                <h2>Currently Reading:</h2>
+                <table id="currentlyReadingTable">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Chapter</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic rows will be inserted here -->
+                    </tbody>
+                </table>
             </div>
-            <div class="reading-list">
-                <h2>Reading List: </h2>
-
+            <div class="ratings-list">
+                <h2>Your Top Rated Manhwas </h2>
+                <?php include 'GlttchedArchives/php/script.php'; ?>
             </div>
         </div>
         <div class="categories-section">

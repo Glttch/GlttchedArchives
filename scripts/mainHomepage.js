@@ -113,9 +113,54 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchRecentManhwas();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const tableBody = document.querySelector('#currentlyReadingTable tbody');
 
+    // Fetch ongoing manhwas
+    fetch('/GlttchedArchives/php/fetchOngoing.php')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(manhwa => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${manhwa.title}</td>
+                    <td>
+                        <input type="number" value="${manhwa.numOfChapters}" data-id="${manhwa.manhwaId}" class="num-of-chapters-input" />
+                    </td>
+                    <td>
+                        <button class="update-btn" data-id="${manhwa.manhwaId}">Update</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching ongoing manhwas:', error));
 
+    // Event delegation for updating chapters
+    tableBody.addEventListener('click', event => {
+        if (event.target.classList.contains('update-btn')) {
+            const manhwaId = event.target.dataset.id;
+            const input = document.querySelector(`.num-of-chapters-input[data-id="${manhwaId}"]`);
+            const numOfChapters = input.value;
 
+            // Update the number of chapters via API
+            fetch('/GlttchedArchives/php/updateChapters.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ manhwaId, numOfChapters })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Number of chapters updated successfully.');
+                    } else {
+                        alert('Failed to update chapters.');
+                    }
+                })
+                .catch(error => console.error('Error updating chapters:', error));
+        }
+    });
+});
 
 
 

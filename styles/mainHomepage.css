@@ -147,24 +147,111 @@ header ul li:hover {
 .list-section {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Add some space between the columns */
+    flex-wrap: wrap; /* Ensure columns stack on smaller screens */
+    gap: 20px; /* Space between the columns */
+    margin: 0 auto; /* Center the section */
+    max-width: 1200px; /* Set a max width for large screens */
 }
 
-.currently-reading, .reading-list {
-    width: 50%; /* Set each column to take up 48% of the width */
+/* Columns */
+.currently-reading, .ratings-list{
+    flex: 1; /* Allow flexible width for columns */
+    min-width: 350px; /* Ensure columns don't shrink too much */
+    max-width: 48%; /* Prevent columns from growing too large */
     gap: 10px;
     margin: 20px;
     padding: 20px;
     border: 1px solid #dad5d5;
     border-radius: 12px;
-    background-color: #ebe6e6;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f7f5f5; /* Slightly lighter background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhance shadow for depth */
     align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effect */
 }
 
-.currently-reading h2, .reading-list h2 {
-    margin-bottom: 10px; /* Adjust margin for heading spacing */
+/* Headings */
+.currently-reading h2, .ratings-list h2{
+    font-size: 1.5em; /* Adjust heading size */
+    color: #333; /* Darker text for contrast */
+    margin-bottom: 15px; /* Adjust margin for heading spacing */
+    text-align: center; /* Center-align the headings */
 }
+
+/* Table Styling for Currently Reading */
+#currentlyReadingTable {
+    width: 100%;
+    border-collapse: collapse; /* Remove spacing between table cells */
+    margin-top: 10px;
+}
+
+#currentlyReadingTable thead th {
+    background-color: #007bff; /* Blue header background */
+    color: #fff; /* White text for contrast */
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid #0056b3;
+}
+
+#currentlyReadingTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Light gray for alternating rows */
+}
+
+#currentlyReadingTable tbody tr:nth-child(even) {
+    background-color: #ffffff; /* White for alternating rows */
+}
+
+#currentlyReadingTable tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Subtle borders for rows */
+}
+
+#currentlyReadingTable tbody td input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+#currentlyReadingTable tbody td button {
+    background-color: #28a745; /* Green for action buttons */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#currentlyReadingTable tbody td button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+#currentlyReadingTable tbody td button:active {
+    background-color: #1e7e34; /* Even darker green on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .list-section {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .currently-reading, .ratings-list {
+        max-width: 100%; /* Make columns full width */
+    }
+}
+
+@media (max-width: 480px) {
+    #currentlyReadingTable tbody td input, 
+    #currentlyReadingTable tbody td button {
+        font-size: 0.8em; /* Adjust font size for smaller screens */
+    }
+}
+
 
 
 /* Completed & Ongoing Sections */

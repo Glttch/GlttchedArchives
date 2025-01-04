@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 $sql = "SELECT manhwaId, title, authorId, artistId, numOfChapters, cover, status 
 FROM manhwa 
 WHERE status = 'Ongoing'
-LIMIT 5 OFFSET 0;";
+LIMIT 10 OFFSET 0;";
 $result = $conn->query($sql);
 
 $manhwas = [];

@@ -17,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categoryIds = $_POST['categories'];
     $status = $_POST['status']; 
 
+    // Calculate average rating
+    $averageRating = ($artStyle + $plotStory + $characters) / 3;
+
     // Insert the manhwa data
     $stmt = $conn->prepare("INSERT INTO manhwa (title, authorId, artistId, numOfChapters, cover, status) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("siiibs", $title, $authorId, $artistId, $numOfChapters, $cover, $status);
@@ -27,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $manhwaId = $conn->insert_id;
 
         // Insert ratings
-        $stmt = $conn->prepare("INSERT INTO rating (manhwaId, artStyle, plotStory, characters) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iiii", $manhwaId, $artStyle, $plotStory, $characters);
+        $stmt = $conn->prepare("INSERT INTO rating (manhwaId, artStyle, plotStory, characters, averageRating) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("idddd", $manhwaId, $artStyle, $plotStory, $characters, $averageRating);
         if (!$stmt->execute()) {
             throw new Exception("Error inserting ratings: " . $stmt->error);
         }
